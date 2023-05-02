@@ -1,0 +1,28 @@
+.padding-left{
+    padding-left: 6vh;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.sub{
+    padding-left: 6vh;
+}
+.main{
+    background-color: rgb(11, 44, 44);
+    color: rgb(244, 246, 248);
+}
+.card-title{
+    background-color: black;
+    color: aliceblue;
+}
+.card{
+    border-radius: 5px;
+    border: 3px solid rgb(107, 242, 222);
+}
+.subdiv{
+    background-color: rgb(55, 53, 53);
+    color: aliceblue;
+}
+.card-body{
+    margin-bottom: 0%;
+}
