@@ -29,22 +29,21 @@ export class SidenavComponent {
     this.flagvalue = false
   }
   setSelectedFacility(id:number) {
-    // console.log(id)
+ 
     this.api.getAllUnits(id).subscribe(
       (response:any)=>{
         
         this.unitData=response
-        // console.log(response)
+        
       }      
     )
   }
-
   showPatientDetailes = (id:Number,bed:Number) => {
     this.bedValue=true
     this.emptyBeds=bed
     this.api.getPatientsByUnit(id).subscribe(
       (response:any)=>{
-        // console.log(response)
+        
         this.patientData = response
       }
     )

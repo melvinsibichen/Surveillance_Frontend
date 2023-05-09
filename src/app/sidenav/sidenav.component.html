@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row flex-nowrap" >
+  <div class="row flex-nowrap">
     <div class="col-sm-2 bg-dark">
 
       <div id="sidebar" class="collapse collapse-horizontal show border-end">
@@ -16,13 +16,10 @@
               <path
                 d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
             </svg> <span (click)="survilanceView()"> Surveillance View</span></a>
-
         </div>
       </div>
     </div>
-
     <!-- -------------------------------------------------------------------side nav -->
-
     <div class="row">
       <div class="col-12" style="background-color: black;">
         <div *ngIf="flagvalue" class="row">
@@ -54,49 +51,44 @@
               </div>
             </div>
             <!-- -----------------------------------------------------------------------------------Dropdown---- -->
-            
-              <div *ngFor="let i of patientData" class="card crd">
-                <span class=" text-white position-absolute top-0 start-0 translate-middle badge rounded-circle bg-info"
-                  style="color: aqua; ">
-                  <!-- 99 -->
-                  <span class="visually-hidden">unread messages</span>
-                </span>
-                <div class="card-body card-title rounded-0">
-                  <div class="card-title">
-                    <div class="padding-left">NAME:<p style="display: inline;">{{i.name}}</p>
-                    </div>
-                    <div class="row sub">
-                      <div class="col-5 mb-2">MRN:{{i.mrn}}</div>
-                      <div class="col">GENDER:{{i.gender}}</div>
-                      <div class="col">AGE:{{i.age}}</div>
-                      <div class="col">HR:{{i.hr}}</div>
-                    </div>
+            <div *ngFor="let i of patientData" class="card crd">
+              <span class=" text-white position-absolute top-0 start-0 translate-middle badge rounded-circle bg-info"
+                style="color: aqua; ">
+                <!-- 99 -->
+                <span class="visually-hidden">unread messages</span>
+              </span>
+              <div class="card-body card-title rounded-0">
+                <div class="card-title">
+                  <div class="padding-left">NAME:<p style="display: inline;">{{i.name}}</p>
                   </div>
-                </div>
-
-                <div class="card-header subdiv">
-                  <div class="row">
-                    <div class="col-6">LOS:{{i.los}}</div>
-                    <div class="col-6">SB:{{i.sb}}</div>
-                    <div class="col-6">SBP:{{i.sbp}}</div>
-                    <div class="col-6">TC:{{i.tc}}</div>
+                  <div class="row sub">
+                    <div class="col-5 mb-2">MRN:{{i.mrn}}</div>
+                    <div class="col">GENDER:{{i.gender}}</div>
+                    <div class="col">AGE:{{i.age}}</div>
+                    <div class="col">HR:{{i.hr}}</div>
                   </div>
                 </div>
               </div>
+
+              <div class="card-header subdiv">
+                <div class="row">
+                  <div class="col-6">LOS:{{i.los}}</div>
+                  <div class="col-6">SB:{{i.sb}}</div>
+                  <div class="col-6">SBP:{{i.sbp}}</div>
+                  <div class="col-6">TC:{{i.tc}}</div>
+                </div>
+              </div>
             </div>
-            <!--------------------------------------------------------------------------------Card-- -->
-            <div *ngIf="bedValue" id="btn"><br>
-              <h6 class="text-light">Empty Beds:{{emptyBeds}}</h6>
-              <br>
-              <button *ngFor="let i of [].constructor(emptyBeds); let index = index;" type="button" class="butn btn btn-outline-info btn-md disabled"><b>{{index+1}}</b></button>
-            </div>
-            
-              
-          
+          </div>
+          <!--------------------------------------------------------------------------------Card-- -->
+          <div *ngIf="bedValue" id="btn"><br>
+            <h6 class="text-light">Empty Beds:{{emptyBeds}}</h6>
+            <br>
+            <button *ngFor="let i of [].constructor(emptyBeds); let index = index;" type="button"
+              class="butn btn btn-outline-info btn-md disabled"><b>{{index+1}}</b></button>
           </div>
         </div>
       </div>
     </div>
-
-
-    <!-- ----------------------------------------------------------------------------------Button-- -->
+  </div>
+  <!-- ----------------------------------------------------------------------------------Button-- -->
