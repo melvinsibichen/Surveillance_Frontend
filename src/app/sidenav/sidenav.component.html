@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row flex-nowrap">
+  <div class="row flex-nowrap" >
     <div class="col-sm-2 bg-dark">
 
       <div id="sidebar" class="collapse collapse-horizontal show border-end">
@@ -19,7 +19,6 @@
 
         </div>
       </div>
-
     </div>
 
     <!-- -------------------------------------------------------------------side nav -->
@@ -27,24 +26,9 @@
     <div class="row">
       <div class="col-12" style="background-color: black;">
         <div *ngIf="flagvalue" class="row">
-          <div class="col-2">
-
-            <!-- <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse"
-            class="border rounded-3 p-1 text-decoration-none"><i class="fa-solid fa-arrow-left"
-            style="color: rgb(31, 5, 5);"></i> </a> -->
-
-            <div class="dropdown text-light" style="display:inline;" style="display: inline;">
-
-              <br><br><br>Facility:
-              <!-- <button class="btn btn-secondary dropdown-toggle" type="button" pading data-bs-toggle="dropdown"
-                aria-expanded="false">
-                EastCoast
-              </button>
-              <ul *ngFor="let i of facilityData" class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">{{i.facility}}</a></li>
-              </ul>
-            </div> -->
-
+          <div style="display:flex; align-items: center;">
+            <div style="display: block; color: white;">
+              <h6>Facility:</h6>
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,84 +36,67 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                   <li *ngFor="let i of facilityData"><a class="dropdown-item active" href="#"
-                      (click)="setSelectedFacility(i)">{{i}}</a></li>
+                      (click)="setSelectedFacility(i.id)">{{i.facility}}</a></li>
                 </ul>
               </div>
-
             </div>
-
-
-
-            <div class="col-6">
+            <div style="display: block; color: white;margin-left: 1rem;">
+              <h6>Unit:</h6>
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   Unit:
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                  <li *ngFor="let i of unitData"><a class="dropdown-item active" href="#" (click)="setSelectedUnit(i)"
-                      (click)="showPatientDetailes()">{{i}}</a></li>
+                  <li *ngFor="let i of unitData"><a class="dropdown-item active" href="#"
+                      (click)="showPatientDetailes(i.id,i.bed)">{{i.unit}}</a></li>
                 </ul>
               </div>
-
             </div>
-          </div>
-
-          <!-- -----------------------------------------------------------------------------------Dropdown---- -->
-          <div class="col-4 mt-4">
-
-            <div *ngFor="let i of patientData" class="card position-relative">
-              <span class=" text-white position-absolute top-0 start-0 translate-middle badge rounded-circle bg-info"
-                style="color: aqua; ">
-                99
-                <span class="visually-hidden">unread messages</span>
-              </span>
-              <div class="card-body card-title rounded-0">
-                <div class="card-title">
-                  <div class="padding-left">NAME:<p style="display: inline;">{{i.name}}</p>
+            <!-- -----------------------------------------------------------------------------------Dropdown---- -->
+            
+              <div *ngFor="let i of patientData" class="card crd">
+                <span class=" text-white position-absolute top-0 start-0 translate-middle badge rounded-circle bg-info"
+                  style="color: aqua; ">
+                  <!-- 99 -->
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+                <div class="card-body card-title rounded-0">
+                  <div class="card-title">
+                    <div class="padding-left">NAME:<p style="display: inline;">{{i.name}}</p>
+                    </div>
+                    <div class="row sub">
+                      <div class="col-5 mb-2">MRN:{{i.mrn}}</div>
+                      <div class="col">GENDER:{{i.gender}}</div>
+                      <div class="col">AGE:{{i.age}}</div>
+                      <div class="col">HR:{{i.hr}}</div>
+                    </div>
                   </div>
-                  <div class="row sub">
-                    <div class="col-5 mb-2">MRN:{{i.mrn}}</div>
-                    <div class="col">GENDER:{{i.gender}}</div>
-                    <div class="col">AGE:{{i.age}}</div>
-                    <div class="col">HR:{{i.hr}}</div>
+                </div>
+
+                <div class="card-header subdiv">
+                  <div class="row">
+                    <div class="col-6">LOS:{{i.los}}</div>
+                    <div class="col-6">SB:{{i.sb}}</div>
+                    <div class="col-6">SBP:{{i.sbp}}</div>
+                    <div class="col-6">TC:{{i.tc}}</div>
                   </div>
                 </div>
               </div>
-
-              <div class="card-header subdiv">
-                <div class="row">
-                  <div class="col-6">LOS:{{i.los}}</div>
-                  <div class="col-6">SB:{{i.sb}}</div>
-                  <div class="col-6">SBP:{{i.sbp}}</div>
-                  <div class="col-6">TC:{{i.tc}}</div>
-                </div>
-              </div>
             </div>
-          </div>
-          <!--------------------------------------------------------------------------------Card-- -->
-          <div class="col-4 text-light">
-            <br>
-            <h6>Empty Beds:</h6>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>1</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>2</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>3</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>4</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>5</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>6</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>7</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>8</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>9</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>10</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>11</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>12</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>13</b></button>
-            <button type="button" class="btn btn-outline-info btn-md disabled"><b>14</b></button>
+            <!--------------------------------------------------------------------------------Card-- -->
+            <div *ngIf="bedValue" id="btn"><br>
+              <h6 class="text-light">Empty Beds:{{emptyBeds}}</h6>
+              <br>
+              <button *ngFor="let i of [].constructor(emptyBeds); let index = index;" type="button" class="butn btn btn-outline-info btn-md disabled"><b>{{index+1}}</b></button>
+            </div>
+            
+              
+          
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 
-  <!-- ----------------------------------------------------------------------------------Button-- -->
+    <!-- ----------------------------------------------------------------------------------Button-- -->

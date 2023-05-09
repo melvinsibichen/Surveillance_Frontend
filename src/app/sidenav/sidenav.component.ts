@@ -13,47 +13,40 @@ export class SidenavComponent {
         this.facilityData = response
       }
     )
-    api.getAllUnits().subscribe(
-      (response: any) => {
-        this.unitData = response
-      }
-    )
   }
-
   facilityData: any = []
   unitData: any = []
   patientData: any = []
-  flagvalue: boolean = false;
-
-  facilityName = "";
-  unit = ""
-
+  flagvalue: boolean = false;  
+  facilityId:Number=0;
+  unitId:Number=0
+  emptyBeds:Number=0;
+  bedValue:boolean=false;
   survilanceView = () => {
     this.flagvalue = true
   }
   survilanceNonView = () => {
     this.flagvalue = false
   }
-
-  setSelectedFacility(facility: string) {
-    this.facilityName = facility;
-    console.log(this.facilityName)
+  setSelectedFacility(id:number) {
+    // console.log(id)
+    this.api.getAllUnits(id).subscribe(
+      (response:any)=>{
+        
+        this.unitData=response
+        // console.log(response)
+      }      
+    )
   }
 
-  setSelectedUnit(unit: string) {
-    this.unit = unit;
-  }
-
-  showPatientDetailes = () => {
-    if (this.facilityName == "") {
-      alert("Please select a Facility Name")
-    } else {
-      let data: any = { "facility": this.facilityName, "unit": this.unit }
-      this.api.getPatients(data).subscribe(
-        (response: any) => {
-          this.patientData = response;
-        }
-      )
-    }
+  showPatientDetailes = (id:Number,bed:Number) => {
+    this.bedValue=true
+    this.emptyBeds=bed
+    this.api.getPatientsByUnit(id).subscribe(
+      (response:any)=>{
+        // console.log(response)
+        this.patientData = response
+      }
+    )
   }
 }

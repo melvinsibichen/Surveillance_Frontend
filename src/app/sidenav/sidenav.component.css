@@ -26,3 +26,15 @@
 .card-body{
     margin-bottom: 0%;
 }
+
+.butn{
+    width: 40px;
+}
+.crd{
+    
+    top: 150px;
+}
+#btn{
+    position: fixed;
+    top: 400px;
+}

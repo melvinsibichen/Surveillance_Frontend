@@ -12,12 +12,12 @@ export class ApiService {
     return this.http.get("http://localhost:8080/facility/getFacilityNames")
   }
 
-  getAllUnits = () => {
-    return this.http.get("http://localhost:8080/facility/getUnitNames")
+  getAllUnits = (id:number) => {
+    return this.http.get("http://localhost:8080/unit/getUnitAndPatientsByFacility/"+id)
   }
 
-  getPatients = (data: any) => {
-    return this.http.post("http://localhost:8080/patients/getPatients", data)
+  getPatientsByUnit = (id:Number) => {
+    return this.http.get("http://localhost:8080/patients/getPatientsByUnit/"+id)
   }
 
 }
